@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VIBE-IDE code editor - new language IDE for Windows developers by Rajvenkadam. Convert natural language intent to production HTML/CSS/JS/Python code. Fast system-based IDE.">
+    <meta name="keywords" content="VIBE-IDE, code editor, new language, IDE, Rajvenkadam, developer tool, Windows IDE, SNL compiler, high performance IDE">
+    <meta name="author" content="Rajvenkadam S">
+    <meta name="robots" content="index, follow">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="VIBE-IDE - Revolutionary Code Editor & New Language IDE by Rajvenkadam">
+    <meta property="og:description" content="Discover VIBE-IDE: system-based code editor, fast Windows IDE converting intent to production-ready code. Download now!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vibe-ide.com/">
+    <meta property="og:image" content="https://vibe-ide.com/assets/vibe-overview.png">
+    <meta property="og:image:alt" content="VIBE-IDE code editor overview">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="VIBE-IDE - Revolutionary Code Editor & New Language IDE">
+    <meta name="twitter:description" content="High performance developer tool: code editor, new language IDE by Rajvenkadam.">
+    <meta name="twitter:image" content="https://vibe-ide.com/assets/vibe-overview.png">
+    <title>VIBE-IDE - Revolutionary Code Editor & New Language IDE by Rajvenkadam | Visual Intent Build Engine</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800&family=Fira+Code&display=swap" rel="stylesheet">
+    <script src="navbar.js"></script><style>
+        :root {
+            --primary: #4F46E5;
+            --primary-dark: #4338CA;
+            --bg-light: #F8FAFC;
+            --text-main: #0F172A;
+            --text-muted: #64748B;
+            --white: #FFFFFF;
+            --border: #E2E8F0;
+            --code-bg: #020617;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-light);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(79, 70, 229, 0.05) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(99, 102, 241, 0.05) 0px, transparent 50%);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .brand-name { font-family: 'Outfit', sans-serif; letter-spacing: -0.02em; }
+        .container { max-width: 95%; margin: 0 auto; padding: 0 24px; }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(255, 255, 255, 0.8);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container { display: flex; justify-content: space-between; align-items: center; }
+        .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .brand-icon { background: var(--primary); color: white; padding: 6px; border-radius: 8px; display: flex; }
+        .brand-name { font-size: 20px; font-weight: 800; color: var(--text-main); }
+        
+        .nav-links { display: flex; align-items: center; gap: 32px; }
+        .nav-links a { 
+            text-decoration: none; 
+            color: var(--text-muted); 
+            font-weight: 500; 
+            font-size: 15px;
+            transition: color 0.2s; 
+        }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary); }
+        
+        .nav-cta { 
+            background: var(--text-main); 
+            color: white !important; 
+            padding: 8px 20px; 
+            border-radius: 6px;
+            transition: opacity 0.2s;
+        }
+        .nav-cta:hover { opacity: 0.9; }
+
+        /* Hero Section */
+        .hero { padding: 80px 0; }
+        .hero-split { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items: center; }
+        .badge { display: inline-flex; align-items: center; gap: 8px; background: #EEF2FF; color: var(--primary); padding: 6px 12px; border-radius: 20px; font-size: 13px; font-weight: 600; margin-bottom: 24px; }
+        .pulse { width: 8px; height: 8px; background: var(--primary); border-radius: 50%; animation: pulse-animation 2s infinite; }
+        @keyframes pulse-animation { 0% { box-shadow: 0 0 0 0px rgba(79, 70, 229, 0.4); } 100% { box-shadow: 0 0 0 10px rgba(79, 70, 229, 0); } }
+
+        h1 { font-size: 64px; font-weight: 800; line-height: 1.1; margin-bottom: 24px; }
+        .accent-text { background: linear-gradient(90deg, var(--primary), #3343da); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-content p { font-size: 18px; color: var(--text-muted); margin-bottom: 32px; max-width: 500px; }
+        .cta-group { display: flex; gap: 16px; }
+        .btn-primary, .btn-secondary { padding: 14px 28px; border-radius: 8px; font-weight: 600; font-size: 16px; cursor: pointer; transition: all 0.2s; text-decoration: none; display: inline-block; }
+        .btn-primary { background: #020617; color: white; border: none; box-shadow: 0 4px 14px rgba(57, 49, 216, 0.3); }
+        .btn-secondary { background: var(--white); border: 1px solid var(--border); color: var(--text-main); }
+
+        /* Visual Showcase */
+        .showcase-wrapper { position: relative; padding-top: 100px; }
+        .output-card {
+            position: absolute;
+            top: 0;
+            right: -20px;
+            width: 80%;
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            z-index: 10;
+            border: 1px solid var(--border);
+            animation: slideIn 0.8s ease-out;
+        }
+        @keyframes slideIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        .output-header { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-size: 12px; color: var(--text-muted); text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em; }
+        .output-preview { padding: 15px; background: #fdfdfd; border: 1px dashed #cbd5e1; border-radius: 6px; text-align: center; }
+        .output-preview h4 { color: var(--primary); margin-bottom: 4px; }
+        .preview-btn { background: var(--primary); color: white; padding: 6px 12px; border-radius: 4px; font-size: 12px; display: inline-block; margin-top: 8px; }
+
+        /* Code Window */
+        .code-perspective { perspective: 1000px; }
+        .code-window {
+            background: var(--code-bg);
+            border-radius: 12px;
+            border: 1px solid #1E293B;
+            box-shadow: 0 30px 60px -12px rgba(0,0,0,0.25);
+            overflow: hidden;
+            position: relative;
+            z-index: 5;
+            animation: slideIn 0.8s ease-out;
+        }
+        .code-header { background: #0F172A; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; }
+        .dots { display: flex; gap: 8px; }
+        .dot { width: 10px; height: 10px; border-radius: 50%; }
+        .red { background: #FF5F56; }
+        .yellow { background: #FFBD2E; }
+        .green { background: #27C93F; }
+        .tab { color: #94A3B8; font-size: 12px; font-family: 'Fira Code', monospace; }
+        .code-body { padding: 24px; font-family: 'Fira Code', monospace; font-size: 14px; color: #CBD5E1; }
+        .line { margin-bottom: 8px; }
+        .token-cmd { color: #818CF8; }
+        .token-attr { color: #94A3B8; }
+        .token-str { color: #34D399; }
+        .cursor::after { content: "|"; animation: blink 1s infinite; color: var(--primary); margin-left: 4px; }
+        @keyframes blink { 50% { opacity: 0; } }
+
+        /* Features */
+        .features { padding: 100px 0; background: var(--white); }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; }
+        .feature-card { padding: 40px; border-radius: 16px; background: var(--bg-light); border: 1px solid var(--border); transition: transform 0.3s ease; }
+        .feature-card:hover { transform: translateY(-8px); border-color: var(--primary); }
+        .icon-box { width: 48px; height: 48px; background: var(--primary); color: white; display: flex; align-items: center; justify-content: center; border-radius: 12px; margin-bottom: 24px; }
+
+        .footer { padding: 60px 0; text-align: center; color: var(--text-muted); border-top: 1px solid var(--border); }
+
+        @media (max-width: 968px) {
+            .hero-split { grid-template-columns: 1fr; text-align: center; }
+            .output-card { position: relative; right: 0; width: 100%; margin-bottom: -20px; }
+            .cta-group { justify-content: center; }
+            h1 { font-size: 44px; }
+            .nav-links { display: none; } /* Basic mobile handling */
+        }
+        /* --- RESPONSIVE UPDATES --- */
+
+/* 1. Container Padding for Mobile */
+@media (max-width: 480px) {
+    .container { padding: 0 16px; }
+    h1 { font-size: 36px !important; }
+    .hero { padding: 40px 0; }
+}
+
+/* 2. Hero Section Grid & Layout */
+@media (max-width: 968px) {
+    .hero-split {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .hero-content p {
+        margin: 0 auto 32px auto;
+    }
+
+    .cta-group {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .btn-primary, .btn-secondary {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    /* 3. Showcase (Code + Preview) Stack */
+    .showcase-wrapper {
+        padding-top: 20px;
+        display: flex;
+        flex-direction: column-reverse; /* Shows preview above code on mobile */
+        gap: 20px;
+    }
+
+    .output-card {
+        position: relative;
+        right: 0;
+        top: 0;
+        width: 100%;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        animation: slideIn 0.5s ease-out;
+    }
+
+    .code-window {
+        width: 100%;
+        transform: none !important; /* Removes perspective tilt for flat mobile screens */
+    }
+
+    .code-body {
+        font-size: 12px; /* Smaller text for narrow screens */
+        padding: 16px;
+    }
+}
+
+/* 4. Navbar Mobile Fix */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Consider adding a hamburger menu later */
+    }
+    
+    .nav-container {
+        justify-content: center; /* Center brand on mobile */
+    }
+}
+
+/* 5. Feature Grid Refinement */
+@media (max-width: 640px) {
+    .feature-grid {
+        grid-template-columns: 1fr; /* Force single column earlier on small screens */
+    }
+
+    .feature-card {
+        padding: 24px;
+    }
+
+    .section-header h2 {
+        font-size: 28px;
+    }
+}
+
+/* 6. Prevent Horizontal Overflow */
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+    position: relative;
+}
+    </style>
+</head>
+<body>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "VIBE-IDE",
+      "alternateName": "Visual Intent Build Engine",
+      "description": "VIBE-IDE is a fast Windows IDE and code editor that converts human-readable Structured Natural Language (SNL) into original production-ready HTML, CSS, JS, and Python code. Developer tool by Rajvenkadam.",
+      "operatingSystem": "Windows",
+      "applicationCategory": "DeveloperApplication",
+      "author": {
+        "@type": "Person",
+        "name": "Rajvenkadam S"
+      },
+      "url": "https://vibe-ide.com",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": ["SNL to Code Conversion", "Live Preview", "AST Viewer", "Multi-language Output"]
+    }
+    </script>
+    <script>
+    loadNavbar('nav-home'); // Tells the script to highlight Home
+</script>
+
+    <header class="hero">
+        <div class="container hero-split">
+            <div class="hero-content">
+                <span class="badge"><span class="pulse"></span>V1.0 Available Now</span>
+                <h1>VIBE-IDE<span class="accent-text"><br>The Visual Intent Build Engine</span></h1>
+                <p>Convert your <strong>Structured Natural Language (SNL)</strong> into production-ready <span class="highlight">HTML, CSS, JS, and Python</span> automatically.</p>
+                <div class="cta-group">
+                    <a href="download.html" class="btn-primary">Download Free</a>
+                    <a href="docs.html" class="btn-secondary">View Documentation</a>
+                </div>
+            </div>
+
+            <div class="showcase-wrapper">
+                <div class="output-card">
+                    <div class="output-header">
+                        <i data-lucide="monitor" size="14"></i>
+                        <span>Live Preview Output</span>
+                    </div>
+                    <div class="output-preview">
+                        <h4>Welcome to VIBE_IDE</h4>
+                        <p>Code with Vibe</p>
+                        <div class="preview-btn">Download Now</div>
+                    </div>
+                </div>
+
+                <div class="code-perspective">
+                    <div class="code-window">
+                        <div class="code-header">
+                            <div class="dots">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                            </div>
+                            <div class="tab">app.vibe</div>
+                        </div>
+                        <div class="code-body">
+                            <div class="line"><span class="token-cmd">create</span> <span class="token-attr">title</span> <span class="token-str">"Welcome to VIBE_IDE"</span></div>
+                            <div class="line"><span class="token-cmd">create</span> <span class="token-attr">text</span> <span class="token-str">"Code with Vibe"</span></div>
+                            <div class="line"><span class="token-cmd">create</span> <span class="token-attr">button</span> <span class="token-str">"Download Now"</span></div>
+                            <div class="line cursor">// Engine ready...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="container">
+            <div class="section-header">
+                <h2>Engineered for Efficiency</h2>
+                <p>Skip the boilerplate. Focus on the intent.</p>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="icon-box"><i data-lucide="message-square-code"></i></div>
+                    <h3>SNL Engine</h3>
+                    <p>Instantly transform Structured Natural Language into optimized, human-readable source code.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-box"><i data-lucide="box"></i></div>
+                    <h3>Core Libraries</h3>
+                    <p>Access pre-built logic blocks and simplified syntax for lightning-fast application building.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-box"><i data-lucide="zap"></i></div>
+                    <h3>Live Preview</h3>
+                    <p>See your changes in real-time as you type your intent. Zero compile wait times.</p>
+                </div>
+            </div>
+       
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 VIBE-IDE. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VIBE-IDE documentation - complete guide to system-based code editor, new language IDE. Syntax, features, download for Windows developers by Rajvenkadam.">
+    <meta name="keywords" content="VIBE-IDE docs, documentation, code editor, new language, syntax, tutorial, IDE, Rajvenkadam">
+    <meta name="author" content="Rajvenkadam S">
+    <meta name="robots" content="index, follow">
+    <!-- Open Graph -->
+    <meta property="og:title" content="VIBE-IDE Documentation - Code Editor Guide">
+    <meta property="og:description" content="Complete VIBE-IDE docs: syntax, features, SNL compiler for developers.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vibe-ide.com/docs.html">
+    <meta property="og:image" content="https://vibe-ide.com/assets/vibe-overview.png">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="VIBE-IDE Documentation">
+    <meta name="twitter:description" content="VIBE-IDE docs for code editor and new language IDE.">
+    <meta name="twitter:image" content="https://vibe-ide.com/assets/vibe-overview.png">
+    <title>VIBE-IDE Documentation - Code Editor & New Language IDE Guide by Rajvenkadam</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800&family=Fira+Code&display=swap" rel="stylesheet">
+    <script src="navbar.js"></script><style>
+    :root {
+        --primary: #4F46E5;
+        --primary-light: #EEF2FF;
+        --bg-light: #F8FAFC;
+        --text-main: #0F172A;
+        --text-muted: #64748B;
+        --white: #FFFFFF;
+        --border: #E2E8F0;
+        --code-bg: #020617;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+    /* Fix body to prevent double scrollbars */
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--bg-light);
+        color: var(--text-main);
+        height: 100vh;
+        overflow: hidden; /* Prevent the whole page from scrolling */
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Layout Wrapper */
+    .docs-layout { 
+        display: flex; 
+        flex: 1; 
+        overflow: hidden; /* Key for independent internal scrolling */
+    }
+
+    /* Independent Sidebar Scroll */
+    .sidebar { 
+        width: 300px; 
+        background: var(--white);
+        border-right: 1px solid var(--border);
+        height: 100%; 
+        overflow-y: auto; /* Scrollable independently */
+        padding: 30px 20px;
+        flex-shrink: 0;
+    }
+
+    /* Independent Content Scroll */
+    .content { 
+        flex: 1; 
+        padding: 40px 60px; 
+        height: 100%;
+        overflow-y: auto; /* Scrollable independently */
+        background-color: var(--bg-light);
+    }
+
+    .content-container {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+        body {
+            overflow: auto; /* Allow natural scrolling on mobile */
+            height: auto;
+        }
+        .docs-layout {
+            flex-direction: column;
+            overflow: visible;
+        }
+        .sidebar {
+            width: 100%;
+            height: auto;
+            border-right: none;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+        }
+        .content {
+            padding: 30px 20px;
+            overflow: visible;
+            height: auto;
+        }
+    }
+
+    /* Sidebar and Content Styles */
+    .sidebar-group { margin-bottom: 15px; }
+    
+    .sidebar-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px;
+        cursor: pointer;
+        border-radius: 8px;
+        font-family: 'Outfit';
+        font-weight: 700;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--text-main);
+        transition: background 0.2s;
+    }
+
+    .sidebar-header:hover { background: var(--bg-light); }
+
+    .sidebar-sub-menu {
+        list-style: none;
+        padding-left: 15px;
+        margin-top: 5px;
+        display: none;
+    }
+
+    .sidebar-sub-menu.active { display: block; }
+
+    .sidebar-sub-menu li a {
+        text-decoration: none;
+        color: var(--text-muted);
+        font-size: 14px;
+        display: block;
+        padding: 8px 10px;
+        border-radius: 6px;
+        transition: 0.2s;
+    }
+
+    .sidebar-sub-menu li a:hover, .sidebar-sub-menu li a.active-link {
+        color: var(--primary);
+        background: var(--primary-light);
+    }
+
+    .doc-section { display: none; }
+    .doc-section.active { display: block; animation: fadeIn 0.3s ease; }
+
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    h1, h2, h3 { font-family: 'Outfit'; margin-bottom: 15px; color: var(--text-main); }
+    p { margin-bottom: 20px; color: #334155; line-height: 1.7; }
+
+    .doc-image {
+    display: block;
+    width: 100%;       /* Scaled to fit the 900px container */
+    max-width: 100%;   /* Never wider than its parent */
+    height: auto;      /* Height adjusts automatically to keep things proportional */
+    aspect-ratio: 1345 / 680; /* Your specific image ratio */
+    object-fit: contain;      /* Ensures the whole image is visible */
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    margin: 24px 0;
+    background: #000; /* Optional: adds a background if the ratio shifts */
+}
+
+    .syntax-card {
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 24px;
+        margin-bottom: 24px;
+    }
+
+    .code-snippet {
+        background: var(--code-bg);
+        color: #e2e2e2;
+        padding: 14px;
+        border-radius: 8px;
+        font-family: 'Fira Code';
+        font-size: 13px;
+        margin: 10px 0;
+        overflow-x: auto; /* Added for mobile code view */
+    }
+
+    .tag { font-family: 'Fira Code'; background: var(--primary-light); color: var(--primary); padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
+
+    .btn-dl {
+        background: var(--primary);
+        color: white;
+        padding: 12px 20px;
+        border-radius: 8px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 600;
+    }
+
+    table { width: 100%; border-collapse: collapse; }
+    /* Mobile responsive table */
+    @media (max-width: 600px) {
+        .syntax-card { overflow-x: auto; padding: 15px; }
+        table { font-size: 12px; min-width: 500px; }
+    }
+    @media (max-width: 600px) {
+    /* This ensures the card itself allows horizontal scrolling */
+    .syntax-card { 
+        overflow-x: auto; 
+        padding: 15px;
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS */
+    }
+
+    /* This prevents the table from shrinking too small to read */
+    table { 
+        font-size: 13px; 
+        min-width: 600px; /* Forces the table to maintain a readable width */
+    }
+}
+@media (max-width: 600px) {
+    .doc-image {
+        aspect-ratio: auto; 
+        height: auto;
+        object-fit: contain; /* Shows the full image on mobile without any cropping */
+    }
+}
+</style>
+</head>
+<body>
+<script>
+        // Highlights the download link in the navbar
+        loadNavbar('nav-docs');
+    </script>
+    <div class="docs-layout">
+        <aside class="sidebar">
+            <div class="sidebar-group">
+                <div class="sidebar-header" onclick="toggleMenu('intro-menu')">
+                    Introduction <i data-lucide="chevron-down" size="16"></i>
+                </div>
+                <ul class="sidebar-sub-menu active" id="intro-menu">
+                    <li><a href="#" class="active-link" onclick="showSection('intro-vibe')">What is VIBE?</a></li>
+                    <li><a href="#" onclick="showSection('how-to-download')">How to Download</a></li>
+                </ul>
+                <div class="sidebar-group">
+                <div class="sidebar-header" onclick="toggleMenu('explore-menu')">
+                    Explore <i data-lucide="chevron-down" size="16"></i>
+                </div>
+                <ul class="sidebar-sub-menu" id="explore-menu">
+                    <li><a href="#" onclick="showSection('step1')">1. Open Folder</a></li>
+                    <li><a href="#" onclick="showSection('step2')">2. Where to Code</a></li>
+                    <li><a href="#" onclick="showSection('step3')">3. Inspection</a></li>
+                    <li><a href="#" onclick="showSection('step4')">4. AST Viewer</a></li>
+                    <li><a href="#" onclick="showSection('step5')">5. Switch Language</a></li>
+                    <li><a href="#" onclick="showSection('step6')">6. Live Preview</a></li>
+                    <li><a href="#" onclick="showSection('step7')">7. Use Original Code</a></li>
+                </ul>
+
+            <div class="sidebar-group">
+                <div class="sidebar-header" onclick="toggleMenu('syntax-menu')">
+                    Syntax <i data-lucide="chevron-down" size="16"></i>
+                </div>
+                <ul class="sidebar-sub-menu" id="syntax-menu">
+                    <li><a href="#" onclick="showSection('rules')">Core Rules</a></li>
+                    <li><a href="#" onclick="showSection('elements')">Elements</a></li>
+                    <li><a href="#" onclick="showSection('styling')">Styling</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <main class="content">
+            
+            <section id="intro-vibe" class="doc-section active">
+                <h1>What is VIBE?</h1>
+                <p>VIBE is a Visual Intent Build Engine, designed to convert simple Human readable text into UI elements with original raw codes (html, css, js, py). It bridges the gap between intent and code by using human-readable syntax.</p>
+                <img src="assets/vibe-overview.png" alt="VIBE Overview" class="doc-image">
+            </section>
+
+            <section id="how-to-download" class="doc-section">
+                <h1>How to Download</h1>
+                <div class="syntax-card">
+                    <h3>Guidelines</h3>
+                    <p>1. Download the executable installer using the button below.<br>
+                       2. Run the setup and grant necessary permissions.<br>
+                       3. Launch the VIBE-IDE from your desktop shortcut.</p>
+                    <a href="https://github.com/RAJVENKADAM/VIBE_IDE/releases/download/v1.0/VIBE-IDE.Setup.1.0.0.exe" class="btn-dl" onclick="return handleDownload();"><i data-lucide="download"></i> Download VIBE-IDE</a>
+                </div>
+            </section>
+
+
+            <section id="explore" class="doc-section">
+                <h1>Explore</h1>
+                <p>Explore the features and interface of VIBE-IDE to maximize your productivity.</p>
+                </section>
+
+            <section id="step1" class="doc-section">
+                <h1>1. Open Folder</h1>
+                <p>Click the "Open Folder" button and select the directory where you want to save your project. This ensures the compiler has the correct path to generate your HTML, CSS, and JS files.</p>
+                <img src="assets/open-folder.png" alt="Open Folder" class="doc-image">
+            </section>
+
+            <section id="step2" class="doc-section">
+                <h1>2. Where to Code</h1>
+                <p>Navigate to the <span class="tag">VIBE</span> folder in the explorer. Click on <span class="tag">app.vibe</span> to begin. Write your code here; the IDE automatically converts it into HTML, CSS, JS, or Python.</p>
+                <img src="assets/editor-view.png" alt="Editor View" class="doc-image">
+            </section>
+
+            <section id="step3" class="doc-section">
+                <h1>3. Inspection</h1>
+                <p>Click the <strong>Inspection</strong> tab in the IDE at center panel. This allows you to view the live generated code. You can see the HTML, CSS, JS, or Python outputs by clicking the corresponding files in the explorer.</p>
+                <img src="assets/ins.png" alt="Inspection Tab" class="doc-image">
+            </section>
+
+            <section id="step4" class="doc-section">
+                <h1>4. AST (Abstract Syntax Tree)</h1>
+                <p>Curious about how your code is processed? The AST tab displays the structure of your VIBE code as it is tokenized and transformed into the original output code.</p>
+                <img src="assets/ast.png" alt="AST Viewer" class="doc-image">
+            </section>
+
+            <section id="step5" class="doc-section">
+                <h1>5. Switch Language</h1>
+                <p>VIBE is multi-target. Use the <strong>Switch Language</strong> button to change the output format. The compiler will instantly re-generate your project into the selected language.</p>
+                <img src="assets/lang.png" alt="Language Toggle" class="doc-image">
+            </section>
+
+            <section id="step6" class="doc-section">
+                <h1>6. Live Preview</h1>
+                <p>The <strong>Preview</strong> panel allows you to see your UI results lively. Every change you make in <span class="tag">app.vibe</span> reflects here in real-time.</p>
+                <img src="assets/prev.png" alt="Preview Window" class="doc-image">
+            </section>
+
+            <section id="step7" class="doc-section">
+    <h1>7. Using Original Code for Production</h1>
+    <p>VIBE-IDE isn't just a playground; it generates professional, production-ready source code. Once you've built your "Vibe," follow these steps to take your project live.</p>
+
+    <div class="syntax-card">
+        <div class="step-item">
+            <h3>Step 1: Locate the <span class="tag">APP</span> Folder</h3>
+            <p>Navigate to your project directory. All converted raw source files (HTML, CSS, JS, and Python) are automatically organized and stored inside the <code>APP</code> folder.</p>
+        </div>
+
+        <div class="step-item">
+            <h3>Step 2: Open in External Editor</h3>
+            <p>Right-click the <code>APP</code> folder and select <strong>"Open with Code"</strong> (or your preferred editor like VS Code or PyCharm). Here, you will see the clean, human-readable code generated by the VIBE Engine.</p>
+        </div>
+
+        <div class="step-item">
+            <h3>Step 3: Version Control & Deployment</h3>
+            <p>Push your <code>APP</code> folder to <strong>GitHub</strong> or any VCS. From there, you can deploy to platforms like Netlify, Vercel, or Heroku just as you would with any traditional project.</p>
+        </div>
+
+        <div class="step-item" style="border-bottom: none; padding-bottom: 0;">
+            <h3>Step 4: Production Ready</h3>
+            <p>Your high-level VIBE intent has now been successfully compiled into <strong>original raw code</strong>, optimized and ready for a live production environment.</p>
+        </div>
+    </div>
+</section>
+
+            <section id="rules" class="doc-section">
+                <h1>Core Rules</h1>
+                <p>Follow these structural rules to ensure the VIBE compiler processes your intent correctly.</p>
+
+                <div class="rule-list">
+                    <div class="syntax-card">
+                        <h3>1. The Dot (.)</h3>
+                        <p>Every command acts like a sentence and must end with a period. This tells the engine the instruction is complete.</p>
+                        <div style="display: grid; grid-template-rows: 1fr 1fr;">
+                            <div class="code-snippet" style=" background: #064e3b;">
+                                <span style="color: #34d399;">✔ Correct:</span><br>
+                                create text "Hello".
+                            </div>
+                            <div class="code-snippet" style=" background: #450a0a;">
+                                <span style="color: #f87171;">✘ Incorrect:</span><br>
+                                create text "Hello"
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="syntax-card" >
+                        <h3>2. Double Quotes (" ")</h3>
+                        <p>All content (labels) and style values (sizes, colors) must be wrapped in double quotes.</p>
+                        <div class="code-snippet">
+                            create button <span style="color: #fbbf24;">"Submit"</span> with bg <span style="color: #fbbf24;">"green"</span>.
+                        </div>
+                    </div>
+
+                    <div class="syntax-card" >
+                        <h3>3. Styling Keyword</h3>
+                        <p>To add styles, you must use the <span class="tag">with</span> keyword after the element content.</p>
+                        <div class="code-snippet">
+                            create box "Header" <span style="color: #818cf8; font-weight: bold;">with</span> bg "black" color "white".
+                        </div>
+                    </div>
+
+                    <div class="syntax-card" >
+                        <h3>4. Case Insensitivity</h3>
+                        <p>VIBE doesn't care if you shout or whisper. Commands can be any case.</p>
+                        <div class="code-snippet">
+                            <span style="color: #94a3b8;">// These are identical:</span><br>
+                            CREATE TEXT "Title".<br>
+                            create text "Title".
+                        </div>
+                    </div>
+
+                    <div class="syntax-card" >
+                        <h3>5. One Line, One Element</h3>
+                        <p>Each individual UI component must occupy its own line in the <span class="tag">app.vibe</span> file.</p>
+                        <div class="code-snippet">
+                            create text "Line 1".<br>
+                            create text "Line 2".
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="elements" class="doc-section">
+                <h1>Elements</h1>
+                <div class="syntax-card">
+                    <h3>Text</h3>
+                    <p>Displays a text element on the screen.</p>
+                    <div class="code-snippet">create text "Hello World" with color "red" size "24px".</div>
+                </div>
+                <div class="syntax-card">
+                    <h3>Button</h3>
+                    <p>Creates a clickable button with specific styles.</p>
+                    <div class="code-snippet">create button "Click Me" with bg "blue" color "white" padding "10px".</div>
+                </div>
+                <div class="syntax-card">
+                    <h3>Box</h3>
+                    <p>A container used to group other elements.</p>
+                    <div class="code-snippet">create box "Card Area" with bg "#111" color "white" padding "20px" radius "10px".</div>
+                </div>
+                <div class="syntax-card">
+                    <h3>Link</h3>
+                    <p>A hyperlink to an external or internal URL.</p>
+                    <div class="code-snippet">create link "Google" with url "https://google.com" color "blue".</div>
+                </div>
+            </section>
+
+            <section id="styling" class="doc-section">
+                <h1>Styling Properties</h1>
+                <p>Styles are applied using key-value pairs following the <span class="tag">with</span> keyword. Multiple properties can be chained in a single line.</p>
+                
+                <div class="syntax-card" style="padding: 0; overflow-x: auto">
+                    <table style="width: 100%; border-collapse: collapse; text-align: left;">
+                        <thead>
+                            <tr style="background: var(--primary-light); color: var(--primary); font-family: 'Outfit';">
+                                <th style="padding: 15px; border-bottom: 2px solid var(--border);">Property</th>
+                                <th style="padding: 15px; border-bottom: 2px solid var(--border);">Action</th>
+                                <th style="padding: 15px; border-bottom: 2px solid var(--border);">Example Usage</th>
+                            </tr>
+                        </thead>
+                        <tbody style="font-size: 14px;">
+                            <tr>
+                                <td style="padding: 15px; border-bottom: 1px solid var(--border);"><span class="tag">bg</span></td>
+                                <td style="padding: 15px; border-bottom: 1px solid var(--border);">Sets the background color (Name or Hex).</td>
+                                <td style="padding: 15px; border-bottom: 1px solid var(--border);"><code style="color: #4F46E5;">(action + element) with bg "blue"</code></td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 15px; border-bottom: 1px solid var(--border);"><span class="tag">color</span></td>
+                                <td style="padding: 15px; border-bottom: 1px solid var(--border);">Sets the text color.</td>
+                                <td style="padding: 15px; border-bottom: 1px solid var(--border);"><code style="color: #4F46E5;">(action + element) with color "white"</code></td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 15px; border-bottom: 1px solid var(--border);"><span class="tag">size</span></td>
+                                <td style="padding: 15px; border-bottom: 1px solid var(--border);">Adjusts the size of the text.</td>
+                                <td style="padding: 15px; border-bottom: 1px solid var(--border);"><code style="color: #4F46E5;">(action + element) with size "20px"</code></td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 15px; border-bottom: 1px solid var(--border);"><span class="tag">padding</span></td>
+                                <td style="padding: 15px; border-bottom: 1px solid var(--border);">Adds internal spacing inside the element.</td>
+                                <td style="padding: 15px; border-bottom: 1px solid var(--border);"><code style="color: #4F46E5;">(action + element) with padding "15px"</code></td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 15px; border-bottom: 1px solid var(--border);"><span class="tag">radius</span></td>
+                                <td style="padding: 15px; border-bottom: 1px solid var(--border);">Rounds the corners of the element.</td>
+                                <td style="padding: 15px; border-bottom: 1px solid var(--border);"><code style="color: #4F46E5;">(action + element) with radius "10px"</code></td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 15px; border-bottom: 1px solid var(--border);"><span class="tag">width</span></td>
+                                <td style="padding: 15px; border-bottom: 1px solid var(--border);">Sets the horizontal width.</td>
+                                <td style="padding: 15px; border-bottom: 1px solid var(--border);"><code style="color: #4F46E5;">(action + element) with width "300px"</code></td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 15px; border-bottom: 1px solid var(--border);"><span class="tag">shadow</span></td>
+                                <td style="padding: 15px; border-bottom: 1px solid var(--border);">Adds a drop shadow for depth.</td>
+                                <td style="padding: 15px; border-bottom: 1px solid var(--border);"><code style="color: #4F46E5;">(action + element) with shadow "0 4px 8px rgba(0,0,0,0.1)"</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Combined Example</h3>
+                <div class="code-snippet">
+                    create box "Full Style" with bg "purple" color "white" padding "20px" radius "12px" shadow "0 10px 20px rgba(0,0,0,0.2)".
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+        function handleDownload() {
+            if (navigator.userAgent.includes('Win')) {
+                if (confirm('Windows may show a security warning while installing (because of new author) so click "More info" → "Run anyway" to install VIBE-IDE.')) {
+                    return true; // Allow download
+                }
+            } else {
+                alert('this is only work in windows');
+            }
+            return false;
+        }
+        lucide.createIcons();
+
+
+        function toggleMenu(id) {
+            const menu = document.getElementById(id);
+            menu.classList.toggle('active');
+        }
+
+        function showSection(sectionId) {
+            document.querySelectorAll('.doc-section').forEach(s => s.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+            
+            document.querySelectorAll('.sidebar-sub-menu li a').forEach(a => a.classList.remove('active-link'));
+            
+            // Handle the active link styling for the clicked element
+            if(event && event.currentTarget) {
+                event.currentTarget.classList.add('active-link');
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+
+</html>

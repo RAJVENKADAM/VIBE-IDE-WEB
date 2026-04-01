@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Download VIBE-IDE free - fast Windows code editor and new language IDE by Rajvenkadam. System-based developer tool.">
+    <meta name="keywords" content="VIBE-IDE download, free IDE, Windows code editor, Rajvenkadam, developer tool, download">
+    <meta name="author" content="Rajvenkadam S">
+    <meta name="robots" content="index, follow">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Download VIBE-IDE - Free Code Editor for Windows">
+    <meta property="og:description" content="Download VIBE-IDE: high performance IDE, code editor by Rajvenkadam.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vibe-ide.com/download.html">
+    <meta property="og:image" content="https://vibe-ide.com/assets/vibe-overview.png">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Download VIBE-IDE - Free Code Editor">
+    <meta name="twitter:description" content="Download now: VIBE-IDE code editor and new language IDE.">
+    <meta name="twitter:image" content="https://vibe-ide.com/assets/vibe-overview.png">
+    <title>Download VIBE-IDE - Free Code Editor & New Language IDE for Windows by Rajvenkadam</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800&family=Fira+Code&display=swap" rel="stylesheet">
+    <script src="navbar.js"></script> 
+    <style>
+        :root {
+            --primary: #4F46E5; 
+            --primary-dark: #4338CA; 
+            --bg-light: #F8FAFC;
+            --text-main: #0F172A; 
+            --text-muted: #64748B; 
+            --white: #FFFFFF;
+            --border: #E2E8F0; 
+            --code-bg: #020617;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-light);
+            /* Matched background to About/Index */
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(79, 70, 229, 0.05) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(99, 102, 241, 0.05) 0px, transparent 50%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            color: var(--text-main);
+        }
+
+        main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 60px 0; }
+        
+        .container { max-width: 95%; margin: 0 auto; padding: 0 24px; width: 100%; text-align: center; }
+
+        h1 { font-family: 'Outfit'; font-size: clamp(32px, 5vw, 48px); margin-bottom: 12px; line-height: 1.1; }
+        
+        /* Matched Gradient Text from About page */
+        .accent-text { background: linear-gradient(90deg, var(--primary), #3343da); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+
+        .subtitle { color: var(--text-muted); margin-bottom: 32px; font-size: 18px; }
+
+        .dl-card {
+            background: var(--white); 
+            max-width: 440px; 
+            margin: 0 auto; 
+            padding: 40px;
+            border-radius: 16px; 
+            border: 1px solid var(--border); 
+            /* Matched shadow to About page cards */
+            box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+            transition: transform 0.3s ease;
+        }
+
+        .dl-card:hover { transform: translateY(-5px); }
+
+        .dl-card h3 { font-family: 'Outfit'; margin-bottom: 8px; }
+
+        .btn-download {
+            background: var(--code-bg); 
+            color: white; 
+            text-decoration: none; 
+            padding: 16px;
+            border-radius: 8px; 
+            font-weight: 700; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            gap: 10px;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 14px rgba(2, 6, 23, 0.2);
+        }
+
+        .btn-download:hover { opacity: 0.9; transform: scale(1.02); }
+
+        .requirements {
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            text-align: left;
+        }
+
+        .requirements h4 { margin-bottom: 12px; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); font-weight: 700; }
+        .requirements ul { list-style: none; color: var(--text-main); font-size: 14px; }
+        .requirements li { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+        .check { color: #22c55e; }
+
+        .footer { padding: 40px 0; text-align: center; color: var(--text-muted); border-top: 1px solid var(--border); font-size: 14px; }
+    </style>
+</head>
+<body>
+
+    <script>
+        // Highlights the download link in the navbar
+        loadNavbar('nav-download');
+    </script>
+
+    <main>
+        <div class="container">
+            
+            <div class="dl-card">
+                <i data-lucide="monitor" size="40" style="color: var(--primary); margin-bottom: 20px;"></i>
+                <h3>VIBE-IDE for Windows</h3>
+                <p style="margin: 4px 0 24px 0; font-size: 14px; color: var(--text-muted);">Stable Release v1.0.4</p>
+                
+                <a href="https://github.com/RAJVENKADAM/VIBE_IDE/releases/download/v1.0/VIBE-IDE.Setup.1.0.0.exe" class="btn-download" onclick="return handleDownload();">
+                    <i data-lucide="download" size="20"></i> Download .exe
+                </a>
+
+                <div class="requirements">
+                    <h4>System Requirements</h4>
+                    <ul>
+                        <li><i data-lucide="check-circle" size="16" class="check"></i> Windows 10 / 11 (64-bit)</li>
+                        <li><i data-lucide="check-circle" size="16" class="check"></i> 4GB RAM Minimum</li>
+                        <li><i data-lucide="check-circle" size="16" class="check"></i> 200MB Disk Space</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <footer class="footer">
+        <p>&copy; 2026 VIBE-IDE. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function handleDownload() {
+            if (navigator.userAgent.includes('Win')) {
+                if (confirm('Windows may show a security warning while installing (because of new author) so click "More info" → "Run anyway" to install VIBE-IDE.')) {
+                    return true; // Allow download
+                }
+            } else {
+                alert('this is only work in windows');
+            }
+            return false;
+        }
+        lucide.createIcons();
+    </script>
+
+</body>
+
+</html>

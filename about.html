@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About VIBE-IDE - code editor and new language IDE by Rajvenkadam S. Learn about the Visual Intent Build Engine for Windows developers.">
+    <meta name="keywords" content="VIBE-IDE, about, Rajvenkadam, code editor, new language IDE, developer tool">
+    <meta name="author" content="Rajvenkadam S">
+    <meta name="robots" content="index, follow">
+    <!-- Open Graph -->
+    <meta property="og:title" content="About VIBE-IDE - Code Editor by Rajvenkadam">
+    <meta property="og:description" content="Discover the story behind VIBE-IDE, fast Windows IDE and system-based code editor.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vibe-ide.com/about.html">
+    <meta property="og:image" content="https://vibe-ide.com/assets/raj.jpeg">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="About VIBE-IDE - Code Editor by Rajvenkadam">
+    <meta name="twitter:description" content="Learn about VIBE-IDE developer tool by Rajvenkadam.">
+    <meta name="twitter:image" content="https://vibe-ide.com/assets/raj.jpeg">
+    <title>About VIBE-IDE - Code Editor & New Language IDE by Rajvenkadam</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800&family=Fira+Code&display=swap" rel="stylesheet">
+    <script src="navbar.js"></script>
+    <style>
+        :root {
+            --primary: #4F46E5;
+            --primary-dark: #4338CA;
+            --bg-light: #F8FAFC;
+            --text-main: #0F172A;
+            --text-muted: #64748B;
+            --white: #FFFFFF;
+            --border: #E2E8F0;
+            --code-bg: #020617;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-light);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(79, 70, 229, 0.05) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(99, 102, 241, 0.05) 0px, transparent 50%);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 { font-family: 'Outfit', sans-serif; letter-spacing: -0.02em; }
+        
+        .container { max-width: 95%; margin: 0 auto; padding: 0 24px; }
+
+        /* Hero Section - Reduced Padding */
+        .about-hero { padding: 30px 0 30px; text-align: center; }
+        .section-tag { color: var(--primary); font-weight: 700; text-transform: uppercase; font-size: 13px; letter-spacing: 1.5px; display: block; margin-bottom: 12px; }
+        .about-hero h1 { font-size: clamp(40px, 6vw, 64px); margin-bottom: 16px; line-height: 1.1; }
+        .accent-text { background: linear-gradient(90deg, var(--primary), #3343da); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+        .about-hero p { font-size: 18px; color: var(--text-muted); max-width: 750px; margin: 0 auto; }
+
+        /* Mission Grid - Reduced Margin */
+        .mission-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 40px; margin: 35px 0; align-items: center; }
+        .mission-box { background: var(--white); padding: 25px; border-radius: 16px; border: 1px solid #dfdfdf; box-shadow: 0 10px 40px rgba(0,0,0,0.03); }
+        .mission-text-muted { margin-top: 10px; color: var(--text-muted); font-size: 17px; }
+        .stats-strip { display: flex; gap: 40px; margin-top: 30px; border-top: 1px solid var(--border); padding-top: 20px; }
+        .stat-item h3 { font-size: 28px; color: var(--primary); }
+        .stat-item p { font-size: 12px; color: var(--text-muted); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+        .why-snl-heading { margin-bottom: 12px; font-size: 28px; }
+
+        /* Values Grid - Reduced Padding */
+        .values-section { padding: 10px 0; text-align: center; }
+        .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 32px; }
+        .value-card { padding: 32px; background: var(--white); border: 1px solid var(--border); border-radius: 16px; transition: all 0.3s ease; text-align: left; }
+        .value-card:hover { transform: translateY(-8px); border-color: var(--primary); box-shadow: 0 20px 40px rgba(79, 70, 229, 0.1); }
+        .value-card i { color: var(--primary); margin-bottom: 20px; display: block; }
+        .value-card h3 { margin-bottom: 8px; font-size: 22px; }
+
+        /* CTA Box - Reduced Margin */
+        .cta-box { background: var(--code-bg); border-radius: 24px; padding: 60px 40px; text-align: center; color: white; margin: 40px 0; box-shadow: 0 30px 60px -12px rgba(0,0,0,0.25); }
+        .cta-box h2 { font-size: 38px; margin-bottom: 12px; }
+        .btn-white { background: var(--white); color: var(--code-bg); padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 700; display: inline-block; transition: 0.3s; margin-bottom: 32px; }
+        .btn-white:hover { transform: translateY(-3px); opacity: 0.9; }
+
+        .social-links { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 32px; }
+        .social-item { color: white; text-decoration: none; display: flex; align-items: center; gap: 8px; padding: 8px 16px; background: rgba(255,255,255,0.05); border-radius: 50px; transition: 0.3s; font-size: 13px; }
+        .social-item:hover { background: var(--primary); transform: translateY(-2px); }
+
+        /* Founder Section - Reduced Margin and Padding */
+        .founder-section { padding: 60px 0; background: var(--white); border-radius: 24px; border: 1px solid var(--border); margin: 40px 0; }
+        .founder-grid { display: grid; grid-template-columns: 260px 1fr; gap: 50px; align-items: center; padding: 0 50px; }
+        .founder-image { width: 100%; aspect-ratio: 1/1; border-radius: 16px; object-fit: cover; box-shadow: 12px 12px 0px #0b2d7a; }
+        .founder-bio h2 { font-size: 32px; margin-bottom: 4px; }
+        .founder-title { color: var(--primary); font-weight: 600; margin-bottom: 16px; display: block; }
+        .founder-bio p { font-size: 16px; color: var(--text-muted); margin-bottom: 16px; }
+
+        .footer { padding: 40px 0; text-align: center; color: var(--text-muted); border-top: 1px solid var(--border); font-size: 14px; }
+
+        @media (max-width: 968px) {
+            .mission-grid, .founder-grid { grid-template-columns: 1fr; text-align: center; }
+            .founder-grid { padding: 0 24px; }
+            .founder-image { max-width: 220px; margin: 0 auto; }
+            .stats-strip { justify-content: center; }
+            .about-hero h1 { font-size: 40px; }
+            .cta-box h2 { font-size: 32px; }
+        }
+    </style>
+</head>
+<body>
+
+    <script>loadNavbar('nav-about');</script>
+
+    <main class="container">
+        <section class="about-hero">
+            <span class="section-tag">Our Philosophy</span>
+            <h1>Bridging <span class="accent-text">Intent & Code</span></h1>
+            <p>VIBE-IDE was founded on a simple premise: Make building software as natural as expressing an idea.</p>
+        </section>
+
+        <section class="mission-grid">
+            <div class="mission-box">
+                <h2>The Mission</h2>
+                <p class="mission-text-muted">We believe that the next generation of software won't be written line-by-line, but described through intent. To shift development from writing code to expressing logic."</p>
+                <div class="stats-strip">
+                    <div class="stat-item"><h3>2026</h3><p>Founded</p></div>
+                    <div class="stat-item"><h3>100%</h3><p>Open Source</p></div>
+                    <div class="stat-item"><h3>Zero</h3><p>Friction</p></div>
+                </div>
+            </div>
+            <div>
+                <h3 class="why-snl-heading">Why SNL?</h3>
+                <p class="mission-text-muted">Structured Natural Language is the bridge between human logic and machine execution. It’s readable by both System and human.</p>
+            </div>
+        </section>
+
+        <section class="values-section">
+            <h2>Built for the Modern Developer</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <i data-lucide="zap" size="32"></i>
+                    <h3>Speed of Thought</h3>
+                    <p>Go from a feature idea to a working UI in seconds. No boilerplate, no setup, just build.</p>
+                </div>
+                <div class="value-card">
+                    <i data-lucide="shield-check" size="32"></i>
+                    <h3>Production Ready</h3>
+                    <p>The code generated by VIBE isn't just a prototype - it's optimized, clean, and ready to ship.</p>
+                </div>
+                <div class="value-card">
+                    <i data-lucide="users" size="32"></i>
+                    <h3>Community First</h3>
+                    <p>We are a community-driven project. Every logic block and library is built with collaboration in mind.</p>
+                </div>
+            </div>
+        </section>
+<section class="founder-section">
+            <div class="founder-grid">
+                <img src=".\assets\raj.jpeg" alt="Founder" class="founder-image">
+                <div class="founder-bio">
+                    <span class="section-tag">The Visionary</span>
+                    <h2>RAJVENKADAM S</h2>
+                    <span class="founder-title">CEO & Founder of VIBE-IDE</span>
+                    <p>As a developer driven by the passion to simplify complexity, I founded VIBE-IDE to empower creators. My journey has always been about finding the "vibe" in technology-making it feel natural and accessible.</p>
+                    <p>My passion lies in creating tools that disappear into the background, leaving only the creator's intent. With VIBE, I am not just building an editor; I am building a new way for humans and AI to co-create software.</p>
+                </div>
+            </div>
+        </section>
+        <section class="cta-box">
+            <h2>Join the future of building.</h2>
+            <p style="margin-bottom: 24px; opacity: 0.9;">Download VIBE-IDE for Windows and start your next project today.</p>
+            <a href="download.html" class="btn-white">Download Now</a>
+
+            <div class="social-links">
+                <a href="https://www.instagram.com/vibe_ide.official?igsh=d283anluZmxoMWpu" target="_blank" rel="noopener" class="social-item">
+                    <i data-lucide="instagram" size="16"></i> Instagram
+                </a>
+                <a href="https://www.linkedin.com/in/vibe-ide-ab6070400" target="_blank" rel="noopener" class="social-item">
+                    <i data-lucide="linkedin" size="16"></i> LinkedIn
+                </a>
+                <a href="https://www.youtube.com/@vibe-ide.official" target="_blank" rel="noopener" class="social-item">
+                    <i data-lucide="youtube" size="16"></i> YouTube
+                </a>
+                <a href="https://wa.me/919629798166" target="_blank" rel="noopener" class="social-item">
+                    <i data-lucide="message-circle" size="16"></i> WhatsApp
+                </a>
+            </div>
+        </section>
+
+        
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 VIBE-IDE. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>
